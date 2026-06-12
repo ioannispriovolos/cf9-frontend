@@ -4,10 +4,14 @@ import { Step2PersonTable } from './components/step2-person-table/step2-person-t
 import { Step3PersonTableInput } from './components/step3-person-table-input/step3-person-table-input';
 import { IPerson } from './shared/interfaces/person';
 import { Step4ForDirective } from './components/step4-for-directive/step4-for-directive';
+import { Step5EventBind } from './components/step5-event-bind/step5-event-bind';
 
 @Component({
   selector: 'app-root',
-  imports: [Step2PersonTable, Step3PersonTableInput, Step4ForDirective],
+  imports: [Step2PersonTable, 
+    Step3PersonTableInput, 
+    Step4ForDirective,
+    Step5EventBind],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
