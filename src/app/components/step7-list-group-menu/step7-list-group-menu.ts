@@ -1,9 +1,20 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-step7-list-group-menu',
-  imports: [],
+  imports: [
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './step7-list-group-menu.html',
   styleUrl: './step7-list-group-menu.css',
 })
-export class Step7ListGroupMenu {}
+export class Step7ListGroupMenu {
+  menu = [
+    { text: "Step 2 Person-table", appLink: "person-table-example" },
+    { text: "Step 3 Component-input", appLink: "component-input-example" },
+    { text: "Step 4 @for Directive", appLink: "for-directive-example" },
+    { text: "Step 5 Event Bind", appLink: "event-bind-example" },
+  ]
+}
