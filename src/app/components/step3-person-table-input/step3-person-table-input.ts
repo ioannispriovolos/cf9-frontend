@@ -8,5 +8,6 @@ import { IPerson } from '../../shared/interfaces/person';
   styleUrl: './step3-person-table-input.css',
 })
 export class Step3PersonTableInput {
-  @Input() public person: IPerson | undefined;
+  @Input() person: IPerson | undefined;
+  @Input() step: string | undefined;
 }
