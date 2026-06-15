@@ -30,13 +30,11 @@ export class PersonReactiveForm {
 
     onSubmit(){
     if (this.form.valid){
-      console.log("OnSubmit", this.form.value);
       this.person.emit(this.form.value as IPerson);
     }
   }
 
   onSetValue(){
-    // console.log("Set Value");
     this.form.setValue({
       firstname: "Bob",
       lastname:"Dylan",
