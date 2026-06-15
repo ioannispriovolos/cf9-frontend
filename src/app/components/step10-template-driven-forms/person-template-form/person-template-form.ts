@@ -22,6 +22,16 @@ export class PersonTemplateForm {
   @Output() person = new EventEmitter<IPerson>();
   @ViewChild('eForm', {static: false}) form: NgForm | undefined;
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.form?.setValue({
+      firstname: 'Ioannis',
+      lastname: 'Priovolos',
+      email: 'i.priovolos@aueb.gr'
+      });
+    }, 100);
+  }
+
   onSubmit(value: any) {
     this.person.emit(value);
   }

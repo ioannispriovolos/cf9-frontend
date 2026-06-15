@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { IPerson } from '../../shared/interfaces/person';
 import { sortBy } from 'lodash-es';
 
@@ -16,6 +16,12 @@ export class Step8SimpleDataTable {
     // this.sortOrder['firstname'] = 'asc';
     // this.data = sortBy(this.data, 'firstname');
     this.sortData('firstname');
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data'] && this.data) {
+      this.sortData('firstname');
+    }
   }
 
   sortOrder = {
