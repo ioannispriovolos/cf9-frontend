@@ -16,7 +16,7 @@ import { IPerson } from '../../shared/interfaces/person';
 })
 export class Step11ReactiveForms {
 
-currentPerson: IPerson | undefined;
+  currentPerson: IPerson | undefined;
   persons: IPerson[] = [];
 
   onPerson(data:IPerson){
