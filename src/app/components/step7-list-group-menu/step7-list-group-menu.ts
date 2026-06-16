@@ -20,5 +20,6 @@ export class Step7ListGroupMenu {
     { text: "Step 9 Output Example", appLink: "component-output-example" },
     { text: "Step 10 Template Forms", appLink: "template-driven-form-example" },
     { text: "Step 11 Reactive Forms", appLink: "reactive-form-example" },
+    { text: "Step 12 Http Client", appLink: "http-client-example" },
   ]
 }
