@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { jwtDecode } from 'jwt-decode';
 import { Credentials, LoggedInUser } from '../../shared/interfaces/user-login.interface';
 import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-step13-user-login',
@@ -14,6 +15,9 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class Step13UserLogin {
   userService = inject(UserService);
+  router = inject(Router);
+
+  user = this.userService.user;
 
   form = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -33,6 +37,7 @@ export class Step13UserLogin {
           email: decodedToken.email,
           roles: decodedToken.roles
         });
+        this.router.navigate(['restricted-content']);
       },
       error: (error) => {
         console.log(error);

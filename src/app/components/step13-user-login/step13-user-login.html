@@ -1,5 +1,6 @@
 <h4>User Login</h4>
 
+@if(!user()) {
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="username" >Username:</label>
@@ -19,3 +20,6 @@
     </button>
   </div>
 </form>
+} @else {
+  <p>User {{user()?.username}} is already logged in</p>
+}
