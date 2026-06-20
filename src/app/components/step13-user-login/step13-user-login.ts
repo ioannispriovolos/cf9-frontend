@@ -29,7 +29,17 @@ export class Step13UserLogin {
   });
 
   ngOnInit() {
-
+    google = this.googleService.initializeGoogleSignIn();
+    google.accounts.id.renderButton(
+      document.getElementById("googleBtn"),
+      {
+        theme: 'outline',
+        size: 'large',
+        shape: 'rectangular',
+        logo_alignment:'center',
+        width:'50%'
+      }
+    )
   }
 
   onSubmit(){
