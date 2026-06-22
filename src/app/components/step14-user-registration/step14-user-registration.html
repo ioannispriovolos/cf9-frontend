@@ -37,7 +37,7 @@
     </div>
 
     <div formArrayName="phone">
-      @for (p of phone.controls; let i=$index; track i) {
+      @for (p of phone.controls; let i = $index; track i) {
       <div [formGroupName]="i" class="d-flex gap-3 align-items-center">
         <mat-form-field>
           <mat-label>Phone Number</mat-label>
