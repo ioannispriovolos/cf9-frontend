@@ -16,6 +16,7 @@ declare const google: any;
 export class GoogleService {
     http: HttpClient = inject(HttpClient);
     router = inject(Router);
+    userService = inject(UserService)
 
     googleUser = signal<IGoogleUser | null>(null)
 
@@ -28,14 +29,23 @@ export class GoogleService {
         return google;
     }
 
-    handleCredentials(response: any) {
-        console.log(response);
-        const idToken = response.credential;
-        this.loginGoogle(idToken).subscribe({
-            next: (res) => {
-                console.log(res);
-            },
-            error : (err) => console.log("Problem in Google login", err)
+    handleCredentials(response:any) {
+    // console.log("1>>>>", response);
+    const idToken = response.credential;
+    this.loginGoogle(idToken)
+        .subscribe({
+        next: (res) =>{
+            // console.log(res)
+            const decodedToken= jwtDecode(res.token) as IGoogleUser;
+            console.log(decodedToken);
+            localStorage.setItem('google-access-token', res.token);
+            this.userService.user.set({
+                username: decodedToken.name,
+                email: decodedToken.email,
+                roles: decodedToken.roles
+            })
+        },
+        error: (err) => console.log("Problem in google login", err)
         })
     }
 
