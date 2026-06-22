@@ -13,6 +13,7 @@ import { Step13UserLogin } from './components/step13-user-login/step13-user-logi
 import { RestrictedContent } from './components/restricted-content/restricted-content';
 import { authGuard } from './shared/guards/auth-guard';
 import { readerRoleGuard } from './shared/guards/reader-role-guard';
+import { Step14UserRegistration } from './components/step14-user-registration/step14-user-registration';
 
 export const routes: Routes = [
     {path: 'person-table-example', component: Step2PersonTable},
@@ -27,6 +28,11 @@ export const routes: Routes = [
     {path: 'reactive-form-example', component: Step11ReactiveForms},
     {path: 'http-client-example', component: Step12HttpClientService},
     {path: 'user-login', component: Step13UserLogin},
+    {
+        path: 'user-registration-example', 
+        component: Step14UserRegistration,
+        canActivate: [authGuard, readerRoleGuard]
+    },
     {
         path: 'restricted-content', 
         component: RestrictedContent,
